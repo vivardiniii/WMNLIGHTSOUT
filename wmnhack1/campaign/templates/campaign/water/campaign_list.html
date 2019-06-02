@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <title>All Water Campaigns</title>
+
+    </head>
+    <body>
+
+    <h1><a href="/">Home</a></h1>
+</div>
+
+          {% for campaign in watercampaigns %}
+              <div class="container">
+
+                <div class="content" >
+                  <a href="{% url 'campaign_detail' pk=campaign.pk %}">{{ campaign.title|linebreaksbr }}</a>
+                <h3>  Started by: {{ campaign.user }} </h3>
+                    {% if campaign.image %}
+                  <img src="{{ campaign.image.url }}" width="500px"/>
+                    {% endif %}
+
+                    </div>
+                    <br>
+              </div>
+              <br>
+
+          {% endfor %}
+          <div style="text-align: center"> <a href="{% url 'water_campaign_new' %}">Start your own campaign!</a></div><br>
+
+    </body>
+</html>

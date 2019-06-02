@@ -1,0 +1,30 @@
+{% extends 'campaign/water/base.html' %}
+
+<div style="text-align: center"> <a href="{% url 'water_campaign_list' %}">See what others are doing to conserve water</a></div><br>
+<a href="{% url 'issue_list' %}">Home</a>
+
+{% block content %}
+    <div class="post">
+        {% if watercampaign.date %}
+            <div class="date">
+                {{  watercampaign.date }}
+            </div>
+        {% endif %}
+        <h2>{{  watercampaign.title }}</h2>
+        <h3>{{  watercampaign.user }}</h3>
+        {% if watercampaign.image %}
+        <img src="{{  watercampaign.image.url }}" width="500px"/>
+        {% endif %}
+        {% if watercampaign.duration %}
+        <h2>{{  watercampaign.duration }}</h2>
+        {% endif %}
+        <p>{{  watercampaign.text|linebreaksbr }}</p>
+
+        {% if watercampaign.isPublic %}
+        <p>This is a public event.</p>
+        {% else %}
+        <p>This is an individual change.<p>
+        {% endif %}
+        <p>{{ watercampaign.location }}<p>
+    </div>
+{% endblock %}

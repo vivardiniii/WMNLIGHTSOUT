@@ -1,0 +1,15 @@
+{% extends 'campaign/water/base.html' %}
+
+{% block content %}
+<div class="page-header">
+    <h1><a href="/">Home</a></h1>
+    <h1>Create Your Own Campaign to Conserve Water</h1>
+</div>
+
+    <form method="POST" action='' enctype='multipart/form-data' class="post-form">{% csrf_token %}
+        {{ water_campaign_form.as_p }}
+
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    {% endblock %}

@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <head>
+        <title>Water Conservation</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <a href="{% url 'water_campaign_new' %}" class="top-menu"></a>
+            <h1><a href="/watercampaigns/">See All Campaigns to Conserve Water</a></h1>
+        </div>
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
